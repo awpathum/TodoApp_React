@@ -25,10 +25,12 @@ class Counter extends Component {
     }
     increment(by) {
         //sconsole.log(`increment from parent ${by}`);
-        this.setState({
-            counter: this.state.counter + by
+        this.setState((prevState) => {
+            return { counter: prevState.counter + by }
         })
     }
+
+    
 }
 
 class CounterButton extends Component {
@@ -37,10 +39,10 @@ class CounterButton extends Component {
     //state => counter 0
     constructor() {
         super();
-        this.state = {
-            counter: 0,
-            //secondCounter: 100
-        }
+        // this.state = {
+        //     counter: 0,
+        //     //secondCounter: 100
+        // }
         this.increment = this.increment.bind(this);
     }
 
@@ -57,10 +59,10 @@ class CounterButton extends Component {
 
     increment() {
 
-        this.setState({
-            counter: this.state.counter + this.props.by
+        // this.setState({
+        //     counter: this.state.counter + this.props.by
 
-        })
+        // })
         this.props.incrementMethod(this.props.by);
 
     }
