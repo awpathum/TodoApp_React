@@ -10,3 +10,11 @@ button{
     font-size: 50px;
     padding: 15px 30px;
 }
+button .reset{
+    background-color:red;
+    width: 200px;
+}
+
+body{
+    padding: 50px;
+}
