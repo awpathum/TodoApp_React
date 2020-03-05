@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './Counter.css'
 
 
@@ -40,6 +41,14 @@ class Counter extends Component {
     }
 
 
+}
+
+Counter.defaultProps = {
+    by: 1
+}
+
+Counter.prototypes = {
+    by: PropTypes.number
 }
 
 
