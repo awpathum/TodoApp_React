@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import AuthenticationService from './AuthenticationService.js'
-import AuthenticatedRoute from './AuthenticatedRoute.jsx'
+
 
 class LoginComponent extends Component {
 
@@ -52,7 +51,7 @@ class LoginComponent extends Component {
                     {this.state.showSucesssMessage && <div>Login Successful</div>}
                     Username : <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
                     Password : <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-                    <button className="btn btn-sucess" onClick={this.loginClicked}>Login</button>
+                    <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
                 </div>
             </div>
         )
