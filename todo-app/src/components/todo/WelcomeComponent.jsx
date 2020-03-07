@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { BrowserRouter as Link } from 'react-router-dom'
+import HelloWorldService from '../../api/todo/HelloWorldService.js'
+
+
 
 class WelcomeComponent extends Component {
     constructor(props) {
@@ -21,7 +24,7 @@ class WelcomeComponent extends Component {
         )
     }
     retriveWelcomeMessage() {
-        console.log('Retrive Clicked!');
+        HelloWorldService.executeHelloWorldService()
     }
 }
 export default WelcomeComponent
