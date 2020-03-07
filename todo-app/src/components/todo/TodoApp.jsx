@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
-
 class TodoApp extends Component {
     render() {
         return (
             <div className="TodoApp">
                 <Router>
                     <>
-                    <HeaderComponent></HeaderComponent>
+                        <HeaderComponent></HeaderComponent>
                         <Switch>
                             <Route path="/" exact component={LoginComponent}></Route>
                             <Route path="/login" component={LoginComponent}></Route>
                             <Route path="/welcome/:name" component={WelcomeComponent}></Route>
                             <Route path="/todos" component={ListTodosComponent}></Route>
+                            <Route path="/logout" component={LogoutComponent}></Route>
                             <Route component={ErrorComponent}></Route>
                         </Switch>
                         <FooterComponent></FooterComponent>
@@ -118,26 +118,51 @@ class ListTodosComponent extends Component {
     }
 }
 
-class HeaderComponent extends Component{
-    render(){
-        return(
+class HeaderComponent extends Component {
+    render() {
+        return (
+            <header>
+                <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+                    <div><a href="http://localhost:3000" className="navbar-brand">mamba</a></div>
+                    <ul className="navbar-nav">
+                        <li><Link className="nav-link" to="/welcome/mamba">Home</Link></li>
+                        <li><Link className="nav-link" to="/todos">Todos</Link></li>
+                    </ul>
+                    <ul className="navbar-nav navbar-collapse justify-content-end">
+                        <li><Link className="nav-link" to="/">Login</Link></li>
+                        <li><Link className="nav-link" to="/logout">Logout</Link></li>
+                    </ul>
+
+                </nav>
+            </header>
+        )
+    }
+}
+
+class FooterComponent extends Component {
+    render() {
+        return (
             <div>
-                Header <hr/>
+                <footer className="footer">
+                    <span className="text-muted">All Rights Reserved 2020 @mamba</span>
+                </footer>
             </div>
         )
     }
 }
 
-class FooterComponent extends Component{
-    render(){
-        return(
-            <div>
-                <hr/>Footer
-            </div>
+class LogoutComponent extends Component {
+    render() {
+        return (
+            <>
+                <h1>You are logged out!</h1>
+                <div className="container">
+                    Thank Yo for using our application.
+                </div>
+            </>
         )
     }
 }
-
 
 
 class WelcomeComponent extends Component {
