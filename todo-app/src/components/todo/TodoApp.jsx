@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 class TodoApp extends Component {
     render() {
@@ -7,9 +7,16 @@ class TodoApp extends Component {
             <div className="TodoApp">
                 <Router>
                     <>
-                        <Route path="/" exact component={LoginComponent}></Route>
-                        <Route path="/login" component={LoginComponent}></Route>
-                        <Route path="/welcome" component={WelcomeComponent}></Route>
+                    <HeaderComponent></HeaderComponent>
+                        <Switch>
+                            <Route path="/" exact component={LoginComponent}></Route>
+                            <Route path="/login" component={LoginComponent}></Route>
+                            <Route path="/welcome/:name" component={WelcomeComponent}></Route>
+                            <Route path="/todos" component={ListTodosComponent}></Route>
+                            <Route component={ErrorComponent}></Route>
+                        </Switch>
+                        <FooterComponent></FooterComponent>
+
                     </>
                 </Router>
             </div>
@@ -17,6 +24,7 @@ class TodoApp extends Component {
         )
     }
 }
+export default TodoApp
 
 class LoginComponent extends Component {
 
@@ -41,13 +49,8 @@ class LoginComponent extends Component {
     }
     loginClicked(event) {
         if (this.state.username === "mamba" && this.state.password === "mamba123") {
-            console.log('Sucessful')
-            this.setState({
-                showSucesssMessage: true,
-                hasLoginFailed: false
-            })
+            this.props.history.push(`/welcome/${this.state.username}`)
         }
-
         else {
             console.log('Failed')
             this.setState({
@@ -73,12 +76,81 @@ class LoginComponent extends Component {
 
 }
 
-class WelcomeComponent extends Component {
+
+class ListTodosComponent extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            todos: [{ id: 1, description: 'Learn React', targetDate: new Date(), done: false }, { id: 2, description: 'Learn Well', targetDate: new Date(), done: false }, { id: 3, description: 'Be happy', targetDate: new Date(), done: false }]
+        }
+    }
     render() {
-        return <div>Welcome Mamba!</div>
+        return <div>
+            <h1>
+                List Todos
+            </h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Description</th>
+                        <th>Target Date</th>
+                        <th>Is completed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        this.state.todos.map(
+                            todo => <tr>
+                                <td>{todo.id}</td>
+                                <td>{todo.description}</td>
+                                <td>{todo.done.toString()}</td>
+                                <td>{todo.targetDate.toString()}</td>
+                            </tr>
+                        )
+
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
     }
 }
 
+class HeaderComponent extends Component{
+    render(){
+        return(
+            <div>
+                Header <hr/>
+            </div>
+        )
+    }
+}
+
+class FooterComponent extends Component{
+    render(){
+        return(
+            <div>
+                <hr/>Footer
+            </div>
+        )
+    }
+}
+
+
+
+class WelcomeComponent extends Component {
+    render() {
+        return <div>Welcome {this.props.match.params.name}. You can mamange your todos <Link to="/todos">here</Link></div>
+    }
+}
+
+class ErrorComponent extends Component {
+    render() {
+        return <div>An Error Occured.</div>
+    }
+}
 
 // function ShowInvalidCredentials(props) {
 //     if (props.hasLoginFailed) {
@@ -93,6 +165,3 @@ class WelcomeComponent extends Component {
 //     }
 //     return null
 // }
-
-
-export default TodoApp

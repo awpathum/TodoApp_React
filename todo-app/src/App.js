@@ -6,7 +6,7 @@ import Counter from './components/counter/Counter';
 import TodoApp from './components/todo/TodoApp';
 import logo from './logo.svg';
 import './App.css';
-
+import './bootstrap.css';
 //import FirstComponent from './components/learning-examples/FirstComponent'
 
 
