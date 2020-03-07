@@ -24,7 +24,7 @@ class WelcomeComponent extends Component {
         )
     }
     retriveWelcomeMessage() {
-        HelloWorldService.executeHelloWorldService()
+        HelloWorldService.executeHelloWorldService().then(response => console.log(response))
     }
 }
 export default WelcomeComponent
