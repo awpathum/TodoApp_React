@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class TodoApp extends Component {
     render() {
         return (
-            <LoginComponent></LoginComponent>
+            <div className="TodoApp">
+                <Router>
+                    <>
+                        <Route path="/" exact component={LoginComponent}></Route>
+                        <Route path="/login" component={LoginComponent}></Route>
+                        <Route path="/welcome" component={WelcomeComponent}></Route>
+                    </>
+                </Router>
+            </div>
+
         )
     }
 }
@@ -52,8 +62,6 @@ class LoginComponent extends Component {
     render() {
         return (
             <div>
-                {/* <ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}></ShowInvalidCredentials>
-                <ShowLoginSucesssMessage hasLoginFailed={this.state.showSucesssMessage}></ShowLoginSucesssMessage> */}
                 {this.state.hasLoginFailed && <div>Invalid Credentials</div>}
                 {this.state.showSucesssMessage && <div>Login Successful</div>}
                 Username : <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
@@ -63,6 +71,12 @@ class LoginComponent extends Component {
         )
     }
 
+}
+
+class WelcomeComponent extends Component {
+    render() {
+        return <div>Welcome Mamba!</div>
+    }
 }
 
 
