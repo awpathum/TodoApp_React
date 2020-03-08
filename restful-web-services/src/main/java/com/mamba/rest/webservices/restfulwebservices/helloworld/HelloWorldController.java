@@ -1,4 +1,4 @@
-package com.mamba.rest.webservices.helloworld;
+package com.mamba.rest.webservices.restfulwebservices.helloworld;
 
 
 import org.springframework.web.bind.annotation.CrossOrigin;

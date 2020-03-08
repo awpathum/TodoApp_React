@@ -1,4 +1,4 @@
-package com.mamba.rest.webservices.helloworld;
+package com.mamba.rest.webservices.restfulwebservices.helloworld;
 
 public class HelloWorldBean {
 

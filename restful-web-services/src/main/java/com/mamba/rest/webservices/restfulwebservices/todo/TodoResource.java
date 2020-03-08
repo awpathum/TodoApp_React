@@ -1,4 +1,4 @@
-package com.mamba.rest.webservices.todo;
+package com.mamba.rest.webservices.restfulwebservices.todo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
