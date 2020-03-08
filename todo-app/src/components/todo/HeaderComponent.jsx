@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import AuthenticationService from './AuthenticationService.js'
 class HeaderComponent extends Component {
     render() {
@@ -11,7 +11,7 @@ class HeaderComponent extends Component {
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                     <div><a href="localhost:3000" className="navbar-brand">Mamba</a></div>
                     <ul className="navbar-nav">
-                        {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/in28minutes">Home</Link></li>}
+                        {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/">Home</Link></li>}
                         {isUserLoggedIn && <li><Link className="nav-link" to="/todos">Todos</Link></li>}
                     </ul>
                     <ul className="navbar-nav navbar-collapse justify-content-end">
