@@ -1,7 +1,6 @@
-package com.mamba.rest.webservices.restfulwebservices.helloworld;
+package com.mamba.rest.webservices.helloworld;
 
 
-import com.mamba.rest.webservices.restfulwebservices.helloworld.HelloWorldBean;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
