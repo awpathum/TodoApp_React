@@ -1,6 +1,7 @@
-package com.mamba.rest.webservices.restfulwebservices.hello;
+package com.mamba.rest.webservices.restfulwebservices.helloworld;
 
 
+import com.mamba.rest.webservices.restfulwebservices.helloworld.HelloWorldBean;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,8 +25,8 @@ public class HelloWorldController {
 
     @GetMapping(path = "/hello-world/path-variable/{name}")
     public HelloWorldBean helloWorldPathVariable(@PathVariable String name) {
-        throw new RuntimeException("Some thing went wrong");
-      //  return new HelloWorldBean(String.format("Hello World %s", name));
+        //  throw new RuntimeException("Some thing went wrong");
+        return new HelloWorldBean(String.format("Hello World %s", name));
     }
 
 

@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
-
+import TodoDataService from '../../api/todo/TodoDataService.js'
+import AuthenticationService from './AuthenticationService.js'
 class ListTodosComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            todos: [{ id: 1, description: 'Learn React', targetDate: new Date(), done: false }, { id: 2, description: 'Learn Well', targetDate: new Date(), done: false }, { id: 3, description: 'Be happy', targetDate: new Date(), done: false }]
+            todos: []
         }
+    }
+    componentDidMount() {
+        let username = AuthenticationService.getLoggedInUserName()
+        TodoDataService.retrieveAllTodos(username)
+            .then(response => {
+                //console.log(response)
+                this.setState({
+                    todos: response.data
+                })
+            }
+
+            )
+
     }
     render() {
         return <div>
