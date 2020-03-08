@@ -11,10 +11,10 @@ class TodoDataService {
         return axios.delete(`http://localhost:8080/users/${name}/todos/${id}`)
     }
 
-    updateTodo(name,id){
-        console.log(`http://localhost:8080/users/${name}/todos/${id}`);
-        return axios.put(`http://localhost:8080/users/${name}/todos/${id}`)
-    }
+    // updateTodo(name,id){
+    //     console.log(`http://localhost:8080/users/${name}/todos/${id}`);
+    //     return axios.put(`http://localhost:8080/users/${name}/todos/${id}`)
+    // }
 
     retrieveTodo(name,id) {
         return axios.get(`http://localhost:8080/users/${name}/todos/${id}`)
@@ -26,6 +26,10 @@ class TodoDataService {
         return axios.put(`http://localhost:8080/users/${name}/todos/${id}`,todo)
     }
 
+    createTodo(name,todo){
+        //console.log(`http://localhost:8080/users/${name}/todos/${id}`);
+        return axios.post(`http://localhost:8080/users/${name}/todos/`,todo)
+    }
     
     
 }
