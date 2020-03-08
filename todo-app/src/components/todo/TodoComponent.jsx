@@ -8,7 +8,7 @@ class TodoComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: 1,
+            id: 1, //this is the bug
             description: '',
             targetDate: moment(new Date()).format('YYYY-MM-DD')
         }
@@ -48,7 +48,13 @@ class TodoComponent extends Component {
     }
 
     onSubmit(values) {
+        let username = AuthenticationService.getLoggedInUserName();
         console.log(values)
+        TodoDataService.updateTodo(username,this.state.id,{
+            id : this.state.id,
+            description : values.description,
+            targetDate : values.targetDate
+        }).then(()=>this.props.history.push('/todos'))
     }
 
     render() {

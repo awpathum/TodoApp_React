@@ -21,6 +21,12 @@ class TodoDataService {
         //console.log('executed service')
     }
 
+    updateTodo(name,id,todo){
+        console.log(`http://localhost:8080/users/${name}/todos/${id}`);
+        return axios.put(`http://localhost:8080/users/${name}/todos/${id}`,todo)
+    }
+
+    
     
 }
 export default new TodoDataService()
