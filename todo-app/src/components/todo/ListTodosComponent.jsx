@@ -10,6 +10,7 @@ class ListTodosComponent extends Component {
         }
         this.deleteTodoClicked = this.deleteTodoClicked.bind(this)
         this.refreshTodos = this.refreshTodos.bind(this)
+        this.updateTodoClicked = this.updateTodoClicked.bind(this)
     }
     componentDidMount() {
         this.refreshTodos();
@@ -36,9 +37,25 @@ class ListTodosComponent extends Component {
                     this.setState({
                         message: `Delete of todo ${id} Successful`
                     });
-                    this.refreshTodos();
+                    this.refreshTodos(); 
                 }
             )
+    }
+
+    updateTodoClicked(id) {
+       // console.log('update' + id)
+        let username = AuthenticationService.getLoggedInUserName()
+        console.log(id + " " + username);
+        this.props.history.push(`/todos/${id}`)
+        // TodoDataService.updateTodo(username, id)
+        //     .then(
+        //         response => {
+        //             this.setState({
+        //                 message: `Update of todo ${id} Successful`
+        //             });
+        //             this.refreshTodos(); 
+        //         }
+        //     )
     }
 
     render() {
@@ -56,6 +73,7 @@ class ListTodosComponent extends Component {
                             <th>Target Date</th>
                             <th>Is completed</th>
                             <th>Delete</th>
+                            <th>Update</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,6 +83,7 @@ class ListTodosComponent extends Component {
                                     <td>{todo.description}</td>
                                     <td>{todo.done.toString()}</td>
                                     <td>{todo.targetDate.toString()}</td>
+                                    <td><button className="btn btn-success" onClick={() => this.updateTodoClicked(todo.id)}>Update</button></td>
                                     <td><button className="btn btn-warning" onClick={() => this.deleteTodoClicked(todo.id)}>Delete</button></td>
                                 </tr>
                             )
