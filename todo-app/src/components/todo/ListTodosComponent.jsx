@@ -49,15 +49,6 @@ class ListTodosComponent extends Component {
         let username = AuthenticationService.getLoggedInUserName()
         console.log(id + " " + username);
         this.props.history.push(`/todos/${id}`)
-        // TodoDataService.updateTodo(username, id)
-        //     .then(
-        //         response => {
-        //             this.setState({
-        //                 message: `Update of todo ${id} Successful`
-        //             });
-        //             this.refreshTodos(); 
-        //         }
-        //     )
     }
     addTodoClicked(id) {
         // console.log('update' + id)
