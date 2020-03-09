@@ -1,4 +1,4 @@
-package com.mamba.rest.webservices.restfulwebservices.jwt;
+package com.mamba.rest.webservices.restfulwebservices.jwt.resource;
 
 import java.io.Serializable;
 

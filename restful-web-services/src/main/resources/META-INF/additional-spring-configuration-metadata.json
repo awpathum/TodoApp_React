@@ -1,1 +1,13 @@
-{ "properties": [ ] }
+{
+  "properties": [
+    {
+      "name": "jwt.token.expiration.in.seconds",
+      "type": "java.lang.String",
+      "description": "Description for jwt.token.expiration.in.seconds."
+    },
+    {
+      "name": "jwt.refresh.token.uri",
+      "type": "java.lang.String",
+      "description": "Description for jwt.refresh.token.uri."
+    }
+  ] }

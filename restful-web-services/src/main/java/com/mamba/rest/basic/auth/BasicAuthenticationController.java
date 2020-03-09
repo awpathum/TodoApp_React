@@ -1,4 +1,4 @@
-package com.in28minutes.rest.basic.auth;
+package com.mamba.rest.basic.auth;
 import com.mamba.rest.basic.auth.AuthenticationBean;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

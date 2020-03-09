@@ -20,6 +20,7 @@ class ListTodosComponent extends Component {
 
     refreshTodos() {
         let username = AuthenticationService.getLoggedInUserName()
+        console.log("username" + ":" + username)
         TodoDataService.retrieveAllTodos(username)
             .then(response => {
                 //console.log(response)
@@ -81,8 +82,8 @@ class ListTodosComponent extends Component {
                             this.state.todos.map(
                                 todo => <tr key={todo.id}>
                                     <td>{todo.description}</td>
-                                    <td>{todo.done.toString()}</td>
                                     <td>{moment(todo.targetDate).format('YYYY-MM-DD')}</td>
+                                    <td>{todo.done.toString()}</td>
                                     <td><button className="btn btn-success" onClick={() => this.updateTodoClicked(todo.id)}>Update</button></td>
                                     <td><button className="btn btn-warning" onClick={() => this.deleteTodoClicked(todo.id)}>Delete</button></td>
                                 </tr>
